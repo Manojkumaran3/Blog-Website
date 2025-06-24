@@ -1,0 +1,23 @@
+<header class="p-3 bg-dark text-white">
+    <div class="row">
+        <div class="col">
+           <a class="text-light text-decoration-none"href='/'> <h3>BLOGGERS</h3>
+        </div>
+        <div class="col">
+            <div class="d-flex justify-content-center gap-3">
+                <a class="text-light text-decoration-none" href="/">Home</a>
+                <a class="text-light text-decoration-none" href="about">About</a>
+                <a class="text-light text-decoration-none" href="contact">Contact</a>
+                {%if user.is_authenticated %}
+                <a class="text-light text-decoration-none" href="{%url 'blog:dashboard'%}">Dashboard</a>
+                <a class="text-light text-decoration-none" href="{%url 'blog:logout'%}">Logout</a>
+                {%else%}
+                <a class="text-light text-decoration-none" href="{%url 'blog:register'%}">Register</a>
+                <a class="text-light text-decoration-none" href="{%url 'blog:login'%}">login</a>
+                {%endif%}
+                
+
+            </div>
+        </div>
+    </div>
+</header>

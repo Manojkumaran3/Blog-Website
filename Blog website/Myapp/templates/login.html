@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}  
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center mt-5">
+            <div class="col-4">
+                <h3>Login</h3>
+                <div class="">
+                    <div class="col-12">
+                        <span class="fw-bold"></span>
+                        <span class="text-danger"></span>
+                    </div>
+                </div>
+    
+                <div class="col-12">
+                    <span class="text-danger"></span>
+                </div>
+    
+                 {% include 'includes/error.html'%}
+        
+                <div class="my-3">
+                    <form method="post">
+                    {%csrf_token%}
+                        <div class="form-group">
+                            <label for="username" class="form-label">Username</label>
+                            <input type="text" class="form-control" id="username" name="username" value="">
+                        </div>
+                       
+                        <div class="form-group">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                       
+                        <div class="my-3 d-flex justify-content-between">
+                            <a href="{%url 'blog:forgot_password'%}">Forgot Password</a>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

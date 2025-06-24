@@ -1,0 +1,35 @@
+<!-- Error Messages for Form Fields -->
+{% for field in form %}
+    {% if field.errors %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>{{ field.label }}:</strong>
+            {% for error in field.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<!-- Non-Field Errors -->
+{% for error in form.non_field_errors %}
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error:</strong> {{ error }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+{% endfor %}
+
+<!-- Success Messages -->
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            {% if message.tags == 'success' %}
+                <strong>Success!</strong>
+            {% elif message.tags == 'error' %}
+                <strong>Error!</strong>
+            {% endif %}
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}

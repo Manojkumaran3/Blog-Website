@@ -1,0 +1,1 @@
+SELECT * FROM blog.auth_user;
